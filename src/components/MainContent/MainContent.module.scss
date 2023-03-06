@@ -1,0 +1,17 @@
+.mainWrapper {
+    background-image: url('../../assets/Background\ \(1\).png');
+    height: 100%;
+    background-repeat: repeat-x;
+    max-height: 544px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .mainContent {
+        width: 100%;
+        max-width: 1120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

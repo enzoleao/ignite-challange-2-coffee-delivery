@@ -1,5 +1,5 @@
-<h1 align="center">PADRÃO PARA CIRAÇÃO DE PROJETOS COM REACT</h1>
-<p align="center">Base para inicio de projetos utilizando REACT.JS</p>
+<h1 align="center">DESAFIO 02 DA TRILHA IGNITE DA ROCKESEAT</h1>
+<p align="center">Projeto de Coffee Delivery</p>
 <img src="https://img.shields.io/badge/REACTJS-WORK-blue">
 
 Lista de conteúdos
@@ -17,6 +17,7 @@ Lista de conteúdos
 - [Axios](https://axios-http.com/)
 - [Sass](https://sass-lang.com/)
 - [VSCode](https://code.visualstudio.com/)
+- [React-router-dom](https://www.npmjs.com/package/react-router-dom)
 
 ---
 
