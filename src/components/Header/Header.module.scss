@@ -1,15 +1,24 @@
 .headerContainer {
     position: fixed;
+    display: flex;
     width: 100%;
     padding: 0px 32px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 32px 0px;
-    max-width: 1120px;
-    section {
+    z-index: 1;
+    background-color: #FAFAFA;
+    
+    main {
+    width: 100%;
     display: flex;
     gap: 12px;
+    max-width: 1120px;
+    justify-content: space-between;
 
+    .rightSectionHeader {
+        display: flex;
+        gap: 12px;
         .locationSection {
             color: #4B2995;
             display: flex;
@@ -29,24 +38,26 @@
             }
         }
         .cartSection {
-            padding: 8px;
-            background: #F1E9C9;
-            border-radius: 6px;
-
+            display: flex;
             .cartIcon {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 width:22px;
                 height:22px;
+                background-color: #F1E9C9;
                 color: #C47F17;
+                border-radius: 6px;
+                padding: 8px;
+                gap: 4px;
+                cursor: pointer;
             }
             .itensNumberOnCart {
                 display: flex;
-                position: absolute;
+                position: relative;
                 border-radius: 1000px;
-                top: 22px;
-                right: -9px;
+                right: 12px;
+                bottom: 8px;
                 width: 20px;
                 height: 20px;
                 background: #C47F17;
@@ -56,7 +67,9 @@
                 align-items: center;
                 justify-content: center;
                 letter-spacing: -0.06em;
+                cursor: pointer;
             }
         }
+    }
     }
 }

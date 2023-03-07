@@ -18,29 +18,65 @@
         .titlesSections {
             display: flex;
             flex-direction: column;
-            max-width: 564px;
+            max-width: 588px;
             gap: 20px;
-            .principalContent {
-                font-weight: 800;
-                font-size: 48px;
-                line-height: 130%;
-            }
-            .footerContent {
-                font-weight: 400;
-                font-size: 20px;
-                font-family: 'Roboto';
-                font-style: normal;
+            
+            .headerTitles {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                .principalContent {
+                    font-weight: 800;
+                    font-size: 48px;
+                    line-height: 130%;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                }
+                .footerContent {
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 130%;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                }
             }
 
             footer {
                 display: flex;
                 flex-wrap: wrap;
-                max-width: 567px;
-                column-gap: 38px;
                 align-items: center;
                 justify-content: center;
-                p {
-                    text-align: start;
+                row-gap: 20px;
+                margin-top: 66px;
+                span {
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
+                  width: 50%;
+                  font-size: 16px;
+                  font-weight: 400;
+                  gap: 12px;
+                  line-height: 21px;
+                    .iconsShopCart, .packageIcon, .stopWatchIcon, .coffeeIcon {
+                        z-index: 1;
+                        width: 24px;
+                        height: 24px;
+                        padding: 8px;
+                        border-radius: 1000px;
+                        color: #FAFAFA;
+                    }
+                    .iconsShopCart {
+                        background-color: #C47F17;
+                    }
+                    .packageIcon{
+                       background-color: #574F4D;
+                    }
+                    .stopWatchIcon {
+                        background-color: #DBAC2C;
+                    }
+                    .coffeeIcon {
+                        background-color: #8047F8;
+                    }
                 }
             }
         }
