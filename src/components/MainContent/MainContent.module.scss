@@ -20,15 +20,28 @@
             flex-direction: column;
             max-width: 564px;
             gap: 20px;
-            h1 {
+            .principalContent {
                 font-weight: 800;
                 font-size: 48px;
+                line-height: 130%;
             }
-            p {
+            .footerContent {
                 font-weight: 400;
                 font-size: 20px;
                 font-family: 'Roboto';
                 font-style: normal;
+            }
+
+            footer {
+                display: flex;
+                flex-wrap: wrap;
+                max-width: 567px;
+                column-gap: 38px;
+                align-items: center;
+                justify-content: center;
+                p {
+                    text-align: start;
+                }
             }
         }
     }
