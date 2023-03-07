@@ -1,0 +1,31 @@
+.coffeeSessionWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .coffeeSessionContainer {
+        width: 100%;
+        max-width: 1120px;
+        display: flex;
+        flex-direction: column;
+        .coffeeHeader {
+            margin-top: 35px;
+            color: #403937;
+            font-family: 'Baloo 2';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 130%;
+        }
+
+        .CoffeeAreas {
+            width: 100%;
+            margin-top: 54px;
+            padding-bottom: 157px;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 32px;
+            row-gap: 32px;
+        }
+    }
+}
