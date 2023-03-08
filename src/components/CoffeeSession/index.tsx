@@ -10,7 +10,16 @@ export function CoffeeSession() {
 
         <div className={styles.CoffeeAreas}>
           {Coffee.map((i) => {
-            return <CoffeeBox key={i.id} />
+            return (
+              <CoffeeBox
+                img={i.image}
+                key={i.id}
+                name={i.nome}
+                tag={i.tag}
+                description={i.descricao}
+                price={i.preco}
+              />
+            )
           })}
         </div>
       </div>

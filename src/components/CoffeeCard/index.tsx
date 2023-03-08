@@ -1,25 +1,46 @@
 import styles from './CoffeeCard.module.scss'
+import { useState } from 'react'
+import { HiShoppingCart } from 'react-icons/hi'
 
 interface CoffeeBoxProps {
   img: string
+  name: string
+  tag: any
+  description: string
+  price: string
 }
-
-export function CoffeeBox() {
+export function CoffeeBox(props: CoffeeBoxProps) {
+  const [acrescentCoffee, setAcrescentCoffee] = useState(1)
   return (
     <div className={styles.coffeeCard}>
-      <img src="https://i.imgur.com/GoGTcuT.png" alt="" />
-      <p className={styles.coffeeTag}>TRADICIONAL</p>
-      <p className={styles.coffeeName}>Name</p>
-      <p className={styles.coffeeDescription}>description</p>
+      <img src={props.img} alt="" />
+      <div className={styles.tagCoffee}>
+        <p className={styles.coffeeTag}>TRADICIONAL</p>
+      </div>
+      <p className={styles.coffeeName}>{props.name}</p>
+      <p className={styles.coffeeDescription}>{props.description}</p>
       <footer>
-        <p>R$</p>
+        <p className={styles.priceCoffe}>R${props.price}</p>
         <section>
           <span>
-            <button className={styles.buttonBuyCard}>-</button>
-            <p>1</p>
-            <button className={styles.buttonBuyCard}>+</button>
+            <button
+              onClick={() => setAcrescentCoffee(acrescentCoffee - 1)}
+              className={styles.buttonBuyCard}
+              disabled={acrescentCoffee === 1}
+            >
+              -
+            </button>
+            <p className={styles.countCoffee}>{acrescentCoffee}</p>
+            <button
+              onClick={() => setAcrescentCoffee(acrescentCoffee + 1)}
+              className={styles.buttonBuyCard}
+            >
+              +
+            </button>
           </span>
-          <button>Buy</button>
+          <button className={styles.buyButton}>
+            <HiShoppingCart className={styles.buyIcon} />
+          </button>
         </section>
       </footer>
     </div>
