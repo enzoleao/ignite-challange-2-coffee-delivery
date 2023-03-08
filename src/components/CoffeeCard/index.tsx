@@ -11,6 +11,12 @@ interface CoffeeBoxProps {
 }
 export function CoffeeBox(props: CoffeeBoxProps) {
   const [acrescentCoffee, setAcrescentCoffee] = useState(1)
+
+  const itensBuy = () => {
+    localStorage.setItem(`${props.name}`, `${acrescentCoffee}`)
+    console.log(`foi comprado ${acrescentCoffee} unidades do ${props.name} `)
+  }
+
   return (
     <div className={styles.coffeeCard}>
       <img src={props.img} alt="" />
@@ -38,7 +44,7 @@ export function CoffeeBox(props: CoffeeBoxProps) {
               +
             </button>
           </span>
-          <button className={styles.buyButton}>
+          <button onClick={itensBuy} className={styles.buyButton}>
             <HiShoppingCart className={styles.buyIcon} />
           </button>
         </section>
