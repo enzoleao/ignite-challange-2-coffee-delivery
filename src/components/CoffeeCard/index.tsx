@@ -1,20 +1,25 @@
 import styles from './CoffeeCard.module.scss'
 
+interface CoffeeBoxProps {
+  img: string
+}
+
 export function CoffeeBox() {
   return (
     <div className={styles.coffeeCard}>
       <img src="https://i.imgur.com/GoGTcuT.png" alt="" />
-      <p>Tag</p>
-      <p>description</p>
+      <p className={styles.coffeeTag}>TRADICIONAL</p>
+      <p className={styles.coffeeName}>Name</p>
+      <p className={styles.coffeeDescription}>description</p>
       <footer>
-        <p>Price</p>
+        <p>R$</p>
         <section>
-          <button>Buy</button>
           <span>
-            <button>-</button>
+            <button className={styles.buttonBuyCard}>-</button>
             <p>1</p>
-            <button>+</button>
+            <button className={styles.buttonBuyCard}>+</button>
           </span>
+          <button>Buy</button>
         </section>
       </footer>
     </div>
