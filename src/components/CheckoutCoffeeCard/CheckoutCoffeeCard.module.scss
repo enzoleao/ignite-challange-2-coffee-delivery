@@ -1,0 +1,96 @@
+.checkoutCoffeeCardContainer {
+    display: flex;
+    gap: 20px;
+    img {
+        width: 64px;
+        height: 64px;
+    }
+    .optionsCheckout {
+        display: flex;
+        flex-direction: column;
+        gap:8px;
+        .coffeeName {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 130%;
+            color: #403937;
+        }
+        div {
+            display: flex;
+            gap: 8px;
+
+            .adictionButtons {
+                display: flex;
+                background: #E6E5E5;
+                border-radius: 6px;
+                padding: 8px;
+                gap: 4px;
+                align-items: center;
+                justify-content: center;
+                button {
+                    display: flex;
+                    width: 14px;
+                    height: 14px;
+                    color: #8047F8;
+                    font-size: 22px;
+                    align-items: center;
+                    font-weight: 500;
+                    background:none;
+                    &:hover {
+                        color: #4B2995;
+                    }
+                }
+                p {
+                        width: 20px;
+                        height: 21px;
+                        text-align: center;
+                        font-family: 'Roboto';
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 130%;
+                        color: #272221;
+                }
+            }
+            .removeButton {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .trashIcon {
+                    position: relative;
+                }
+                button {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    justify-content: flex-start;
+                    background: #E6E5E5;
+                    height: 37px;
+                    border-radius: 6px;
+                    text-transform: uppercase;
+                    padding: 0px 10px;
+                    font-family: 'Roboto';
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 160%;
+                    text-transform: uppercase;
+                    color: #574F4D;
+                    &:hover {
+                        background-color: #D7D5D5;
+                    }
+                }
+            }
+        }
+    }
+    .pricePerItens {
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 130%;
+        color: #574F4D;
+    }
+}
+hr {
+    margin-top: 24px;
+    border: 1px solid #E6E5E5;
+}

@@ -1,6 +1,7 @@
 import styles from './CoffeeCard.module.scss'
 import { useState } from 'react'
 import { HiShoppingCart } from 'react-icons/hi'
+import { useContexts } from '../../contexts/useContext'
 
 interface CoffeeBoxProps {
   img: string
@@ -11,10 +12,44 @@ interface CoffeeBoxProps {
 }
 export function CoffeeBox(props: CoffeeBoxProps) {
   const [acrescentCoffee, setAcrescentCoffee] = useState(1)
+  const { setItensQuantity, itensQuantity, itensCartToBuy } = useContexts()
 
   const itensBuy = () => {
-    localStorage.setItem(`${props.name}`, `${acrescentCoffee}`)
-    console.log(`foi comprado ${acrescentCoffee} unidades do ${props.name} `)
+    const itens = localStorage.getItem('itensBuy')
+    const parcialPrice =
+      parseFloat(props.price.replace(',', '.')) * acrescentCoffee
+
+    if (itens != null) {
+      const itensBount = JSON.parse(itens)
+      itensBount.push({
+        name: props.name,
+        price: parcialPrice,
+        units: acrescentCoffee,
+      })
+      localStorage.setItem(`itensBuy`, JSON.stringify(itensBount))
+      setItensQuantity(itensQuantity + 1)
+      setAcrescentCoffee(1)
+      itensCartToBuy.push({
+        name: props.name,
+        price: parcialPrice,
+        units: acrescentCoffee,
+      })
+    } else {
+      const itensBount = []
+      itensBount.push({
+        name: props.name,
+        price: parcialPrice,
+        units: acrescentCoffee,
+      })
+      itensCartToBuy.push({
+        name: props.name,
+        price: parcialPrice,
+        units: acrescentCoffee,
+      })
+      localStorage.setItem(`itensBuy`, JSON.stringify(itensBount))
+      setItensQuantity(itensQuantity + 1)
+      setAcrescentCoffee(1)
+    }
   }
 
   return (

@@ -1,0 +1,247 @@
+.checkoutWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    .checkoutContainer {
+        display: flex;
+        width: 100%;
+        max-width: 1120px;
+        justify-content: space-between;
+        padding: 40px;
+        
+        .leftSection {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 640px;
+
+            .headerFinishPurschase {
+                font-family: 'Baloo 2';
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 130%;
+                color: #403937;
+            }
+            .formAdressClient {
+                display: flex;
+                flex-direction: column;
+                background: #F3F2F2;
+                border-radius: 6px;
+                gap: 32px;
+                padding: 40px;
+
+                header {
+                    display: flex;
+                    flex-direction: column;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 130%;
+                    span {
+                        display: flex;
+                        gap: 8px;
+                        
+                        p {
+                            color: #403937;
+                            font-size: 16px;
+                            margin: 0;
+                        }
+                    }
+                    p {
+                        color: #574F4D;
+                        margin-left: 30px;
+                    }
+                }
+                main {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    
+                    input {
+                        background: #EEEDED;
+                        border: 1px solid #E6E5E5;
+                        height: 42px;
+                        border-radius: 4px;
+                        width: calc(100% - 15px);
+                        font-family: 'Roboto';
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 130%;
+                        color: #574F4D;
+                        padding-left: 12px;
+                        &::placeholder {
+                            font-family: 'Roboto';
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 130%;
+                            color: #8D8686;
+                        }
+                    }
+                    .inputCep {
+                        max-width: 200px;
+                    }
+                    .inputNumber {
+                        max-width: 200px;
+                    }
+                    .inputUF {
+                        max-width: 60px;
+                    }
+                    .inputBairro {
+                        max-width: 200px;
+                    }
+                    span {
+                        display: flex;
+                        gap: 12px;
+                    }
+                }
+            }
+            footer {
+                display: flex;
+                flex-direction: column;
+                background: #F3F2F2;
+                border-radius: 6px;
+                padding: 40px;
+                header {
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 130%;
+                    color: #574F4D;
+                    font-size: 14px;
+
+                    span {
+                        display: flex;
+                        gap: 8px;
+                        align-items: center;
+                        color: #403937;
+                        font-size: 16px;
+                    }
+
+                    .paymentDescription {
+                        margin-left: 30px;
+                    }
+                }
+                .selectPaymentForm {
+                    display: flex;
+                    gap: 12px;
+                    span {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .iconPaymentForm {
+                            display: flex;
+                            position: relative;
+                            top: 36px;
+                            right: 70px;
+                            color: #8047F8;
+                        }
+                        button {
+                           width: 178px;
+                           height: 51px;
+                           background: none;
+                           border-radius: 6px;
+                           font-family: 'Roboto';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 160%;
+                            text-transform: uppercase;
+                            background: #E6E5E5;
+                            color: #574F4D;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+    
+                            &:focus {
+                                background: #EBE5F9;
+                                border: 1px solid #9747FF;
+    
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .purchaseSummary {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
+            max-width: 448px;
+            gap: 12px;
+            .purschaseSummaryHeader {
+                font-family: 'Baloo 2';
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 130%;
+                color: #403937;
+            }
+            .purchaseSummaryItens {
+                background: #F3F2F2;
+                border-radius: 6px 44px;
+                padding: 40px;
+
+                main {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                }
+                footer {
+                    margin-top: 24px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+                        span {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .totalItensAndDelivery, .priceItensAndDelivery {
+                                font-family: 'Roboto';
+                                font-weight: 400;
+                                font-size: 14px;
+                                line-height: 130%;
+                                color: #574F4D;
+                            }
+                            .priceItensAndDelivery {
+                                font-size: 16px;
+                            }
+                            .totalPurchase {
+                                font-family: 'Roboto';
+                                font-weight: 700;
+                                font-size: 20px;
+                                line-height: 130%;
+                                display: flex;
+                                align-items: center;
+                                color: #403937;
+                            }
+                        }
+                    }
+                    button {
+                        background-color: #DBAC2C;
+                        height: 46px;
+                        text-transform: uppercase;
+                        border-radius: 6px;
+                        font-family: 'Roboto';
+                        font-weight: 700;
+                        font-size: 14px;
+                        line-height: 160%;
+                        color: #FFFFFF;
+                        font-stretch: 100;
+
+                        &:hover {
+                        background: #C47F17;   
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
