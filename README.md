@@ -8,7 +8,7 @@ Lista de conteúdos
    * [Sobre](#Sobre)
    * [Features](#features)
    * [Tecnologias](#tecnologias)
-   * [Autor](#autor)
+   * [Autor](#autores)
 <!--te-->
 
 ---
