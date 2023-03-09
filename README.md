@@ -23,7 +23,9 @@ Sistema de Delivery proposta como desafio do projeto ignite
 <h5>Páginas</h5>
 
 - [x] Home
+
 <h5>Componentes</h5>
+
 - [x] Header
 - [x] MainContent
 - [x] CoffeeCard
