@@ -1,0 +1,58 @@
+.fineshCheckoutWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .fineshCheckoutContainer {
+        margin-top: 80px;
+        display: flex;
+        width: 100%;
+        max-width: 1120px;
+        justify-content: space-between;
+        img {
+            margin-top: 150px;
+            width:492px;
+            height:293px;
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+        
+            .DeliveryInformations {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                header {
+                    font-family: 'Baloo 2';
+                    font-style: normal;
+                    font-weight: 800;
+                    font-size: 32px;
+                    line-height: 130%;
+                    color: #C47F17;
+
+                    .footerHeader {
+                        font-family: 'Roboto';
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 130%;
+                        color: #403937;
+                        font-stretch: 100;
+                    }
+                }
+                .informationsDeliveryBox {
+                    width: 100%;
+                    height: 230px;
+                    padding: 40px;
+                    max-width: 486px;
+                    background: linear-gradient(white, white) padding-box,linear-gradient(to right, #DBAC2C
+                    , #8047F8
+                    ) border-box;
+                    border-radius: 6px 36px;
+                    border: 1px solid transparent;
+                }
+            }
+        }
+    }
+}

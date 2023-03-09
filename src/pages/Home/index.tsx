@@ -4,6 +4,7 @@ import { CoffeeSession } from '../../components/CoffeeSession'
 import styles from './Home.module.scss'
 import { useContexts } from '../../contexts/useContext'
 import { Checkout } from '../../components/Checkout/Checkout'
+import { FineshedCheckout } from '../../components/FineshCheckout'
 
 export function Home() {
   const { componentToShow } = useContexts()
@@ -22,6 +23,8 @@ export function Home() {
               )
             case 'cart':
               return <Checkout />
+            case 'fineshCheckout':
+              return <FineshedCheckout />
             default:
               return 'home'
           }

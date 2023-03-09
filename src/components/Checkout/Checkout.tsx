@@ -9,9 +9,32 @@ import {
 import { CheckoutCoffeeCard } from '../CheckoutCoffeeCard'
 import { useContexts } from '../../contexts/useContext'
 import InputMask from 'react-input-mask'
+import { useState } from 'react'
+import axios from 'axios'
+
 export function Checkout() {
   const { itensCartToBuy, totalPurchase } = useContexts()
   const entrega = 10.0
+  const [cep, setCep] = useState('')
+  const [rua, setRua] = useState('')
+  const [bairro, setBairro] = useState('')
+  const [cidade, setCidade] = useState('')
+  const [estado, setEstado] = useState('')
+  const [methodPayment, setMethodPayment] = useState('')
+  const buscarCep = async () => {
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+      setRua(response.data.logradouro)
+      setBairro(response.data.bairro)
+      setCidade(response.data.localidade)
+      setEstado(response.data.uf)
+      if (response.data.erro === true) {
+        alert('Ocorreu algum erro com o CEP, verificar')
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <div className={styles.checkoutWrapper}>
       <div className={styles.checkoutContainer}>
@@ -30,8 +53,15 @@ export function Checkout() {
                 className={styles.inputCep}
                 placeholder="CEP"
                 mask="99999-999"
+                onChange={(e) => setCep(e.target.value)}
+                onBlur={buscarCep}
               />
-              <input placeholder="Rua" type="text" />
+              <input
+                value={rua}
+                onChange={(e) => setRua(e.target.value)}
+                placeholder="Rua"
+                type="text"
+              />
               <span>
                 <input
                   placeholder="Número"
@@ -45,16 +75,22 @@ export function Checkout() {
                   className={styles.inputBairro}
                   placeholder="Bairro"
                   type="text"
+                  value={bairro}
+                  onChange={(e) => setBairro(e.target.value)}
                 />
                 <input
                   className={styles.inputCity}
                   placeholder="Cidade"
                   type="text"
+                  value={cidade}
+                  onChange={(e) => setCidade(e.target.value)}
                 />
                 <input
                   placeholder="UF"
                   className={styles.inputUF}
                   type="text"
+                  value={estado}
+                  onChange={(e) => setEstado(e.target.value)}
                 />
               </span>
             </main>
@@ -72,15 +108,42 @@ export function Checkout() {
             <div className={styles.selectPaymentForm}>
               <span>
                 <CreditCard className={styles.iconPaymentForm} size={22} />
-                <button>Cartão de crédito</button>
+                <button
+                  className={
+                    methodPayment === 'Cartão de Credito'
+                      ? styles.buttonNormalActive
+                      : styles.buttonNormal
+                  }
+                  onClick={() => setMethodPayment('Cartão de Credito')}
+                >
+                  Cartão de crédito
+                </button>
               </span>
               <span>
                 <Bank className={styles.iconPaymentForm} size={22} />
-                <button>Cartão de Debito</button>
+                <button
+                  className={
+                    methodPayment === 'Cartão de Debito'
+                      ? styles.buttonNormalActive
+                      : styles.buttonNormal
+                  }
+                  onClick={() => setMethodPayment('Cartão de Debito')}
+                >
+                  Cartão de Debito
+                </button>
               </span>
               <span>
                 <Money className={styles.iconPaymentForm} size={22} />
-                <button>Dinheiro</button>
+                <button
+                  className={
+                    methodPayment === 'Dinheiro'
+                      ? styles.buttonNormalActive
+                      : styles.buttonNormal
+                  }
+                  onClick={() => setMethodPayment('Dinheiro')}
+                >
+                  Dinheiro
+                </button>
               </span>
             </div>
           </footer>
@@ -120,7 +183,7 @@ export function Checkout() {
                 </span>
               </div>
               <button
-                onClick={() => console.log(itensCartToBuy)}
+                onClick={() => console.log(methodPayment)}
                 className={styles.purchaseConfirmationButton}
               >
                 confirmar pedido

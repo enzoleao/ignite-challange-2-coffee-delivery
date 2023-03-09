@@ -163,11 +163,11 @@
                             justify-content: center;
                             align-items: center;
     
-                            &:focus {
-                                background: #EBE5F9;
-                                border: 1px solid #9747FF;
-    
-                            }
+                        }
+                        .buttonNormalActive {
+                            background: #EBE5F9;
+                            border: 1px solid #9747FF;
+
                         }
                     }
                 }

@@ -16,7 +16,7 @@ export const Context = createContext({} as useContextType)
 export function ContextProvider({ children }: any) {
   const [itensCartToBuy, setItensCartToBuy] = useState([])
   const [itensQuantity, setItensQuantity] = useState(0)
-  const [componentToShow, setComponentToShow] = useState('home')
+  const [componentToShow, setComponentToShow] = useState('fineshCheckout')
   const [totalPurchase, setTotalPurchase] = useState(0)
   useEffect(() => {
     const itens = localStorage.getItem('itensBuy')
