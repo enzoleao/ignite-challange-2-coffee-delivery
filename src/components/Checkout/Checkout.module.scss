@@ -79,6 +79,13 @@
                             line-height: 130%;
                             color: #8D8686;
                         }
+                        &:active {
+                            color: #574F4D;
+                        }
+                        &:focus {
+
+                            border: 1px solid #C47F17;
+                        }
                     }
                     .inputCep {
                         max-width: 200px;

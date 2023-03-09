@@ -8,6 +8,7 @@ import {
 } from 'phosphor-react'
 import { CheckoutCoffeeCard } from '../CheckoutCoffeeCard'
 import { useContexts } from '../../contexts/useContext'
+import InputMask from 'react-input-mask'
 export function Checkout() {
   const { itensCartToBuy, totalPurchase } = useContexts()
   const entrega = 10.0
@@ -25,7 +26,11 @@ export function Checkout() {
               <p>Informe o endereço onde deseja receber seu pedido</p>
             </header>
             <main className={styles.inputFormArea}>
-              <input placeholder="CEP" className={styles.inputCep} type="tel" />
+              <InputMask
+                className={styles.inputCep}
+                placeholder="CEP"
+                mask="99999-999"
+              />
               <input placeholder="Rua" type="text" />
               <span>
                 <input

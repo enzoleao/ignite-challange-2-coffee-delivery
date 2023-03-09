@@ -12,7 +12,13 @@ interface CoffeeBoxProps {
 }
 export function CoffeeBox(props: CoffeeBoxProps) {
   const [acrescentCoffee, setAcrescentCoffee] = useState(1)
-  const { setItensQuantity, itensQuantity, itensCartToBuy } = useContexts()
+  const {
+    setItensQuantity,
+    itensQuantity,
+    itensCartToBuy,
+    totalPurchase,
+    setTotalPurchase,
+  } = useContexts()
 
   const itensBuy = () => {
     const itens = localStorage.getItem('itensBuy')
@@ -50,6 +56,7 @@ export function CoffeeBox(props: CoffeeBoxProps) {
       setItensQuantity(itensQuantity + 1)
       setAcrescentCoffee(1)
     }
+    setTotalPurchase(totalPurchase + parcialPrice)
   }
 
   return (

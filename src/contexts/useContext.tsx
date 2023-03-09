@@ -8,6 +8,7 @@ type useContextType = {
   componentToShow: string
   setComponentToShow: any
   totalPurchase: number
+  setTotalPurchase: any
 }
 
 export const Context = createContext({} as useContextType)
@@ -42,6 +43,7 @@ export function ContextProvider({ children }: any) {
         componentToShow,
         setComponentToShow,
         totalPurchase,
+        setTotalPurchase,
       }}
     >
       {children}
