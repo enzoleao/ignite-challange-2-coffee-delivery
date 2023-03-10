@@ -51,6 +51,12 @@
                     ) border-box;
                     border-radius: 6px 36px;
                     border: 1px solid transparent;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 32px;
+                    .boxInformations {
+                        display: flex;
+                    }
                 }
             }
         }
