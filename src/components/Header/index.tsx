@@ -23,7 +23,15 @@ export function Header() {
               onClick={() => setComponentToShow('cart')}
               className={styles.cartIcon}
             />
-            <span className={styles.itensNumberOnCart}>{itensQuantity}</span>
+            <span
+              className={
+                itensQuantity === 0
+                  ? styles.itensNumberOnCartDisable
+                  : styles.itensNumberOnCart
+              }
+            >
+              {itensQuantity}
+            </span>
           </div>
         </section>
       </main>

@@ -10,31 +10,28 @@ import { CheckoutCoffeeCard } from '../CheckoutCoffeeCard'
 import { useContexts } from '../../contexts/useContext'
 import InputMask from 'react-input-mask'
 import { useState } from 'react'
-import axios from 'axios'
 
 export function Checkout() {
-  const { itensCartToBuy, totalPurchase } = useContexts()
+  const {
+    itensCartToBuy,
+    totalPurchase,
+    setComponentToShow,
+    buscarCep,
+    rua,
+    bairro,
+    cidade,
+    estado,
+    setRua,
+    setBairro,
+    setCidade,
+    setEstado,
+    methodPayment,
+    setMethodPayment,
+    houseNumber,
+    setHouseNumber,
+  } = useContexts()
   const entrega = 10.0
   const [cep, setCep] = useState('')
-  const [rua, setRua] = useState('')
-  const [bairro, setBairro] = useState('')
-  const [cidade, setCidade] = useState('')
-  const [estado, setEstado] = useState('')
-  const [methodPayment, setMethodPayment] = useState('')
-  const buscarCep = async () => {
-    try {
-      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
-      setRua(response.data.logradouro)
-      setBairro(response.data.bairro)
-      setCidade(response.data.localidade)
-      setEstado(response.data.uf)
-      if (response.data.erro === true) {
-        alert('Ocorreu algum erro com o CEP, verificar')
-      }
-    } catch (err) {
-      console.log(err)
-    }
-  }
   return (
     <div className={styles.checkoutWrapper}>
       <div className={styles.checkoutContainer}>
@@ -54,7 +51,7 @@ export function Checkout() {
                 placeholder="CEP"
                 mask="99999-999"
                 onChange={(e) => setCep(e.target.value)}
-                onBlur={buscarCep}
+                onBlur={buscarCep(cep)}
               />
               <input
                 value={rua}
@@ -66,6 +63,8 @@ export function Checkout() {
                 <input
                   placeholder="Número"
                   type="text"
+                  value={houseNumber}
+                  onChange={(e) => setHouseNumber(e.target.value)}
                   className={styles.inputNumber}
                 />
                 <input placeholder="Complemento" type="text" />
@@ -183,7 +182,7 @@ export function Checkout() {
                 </span>
               </div>
               <button
-                onClick={() => console.log(methodPayment)}
+                onClick={() => setComponentToShow('fineshCheckout')}
                 className={styles.purchaseConfirmationButton}
               >
                 confirmar pedido

@@ -56,6 +56,30 @@
                     gap: 32px;
                     .boxInformations {
                         display: flex;
+                        gap: 12px;
+                        .checkoutIconTimer, .checkoutIconCurrencyMoney, .checkoutIconLocation{
+                            border-radius: 1000px;
+                            color: #FAFAFA;
+                            padding: 8px;
+                        }
+                        .checkoutIconLocation {
+                            background-color: #8047F8;
+                        }
+                        .checkoutIconTimer {
+                            background-color: #DBAC2C;
+                        }
+                        .checkoutIconCurrencyMoney {
+                            background: #C47F17;
+                        }
+
+                        .deliveryInformations {
+                            font-family: 'Roboto';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 130%;
+                            color: #574F4D;
+                        }
                     }
                 }
             }

@@ -1,7 +1,9 @@
 import styles from './FineshCheckout.module.scss'
 import deliveryImage from '../../assets/deliveryImage.png'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useContexts } from '../../contexts/useContext'
 export function FineshedCheckout() {
+  const { bairro, cidade, rua, houseNumber, methodPayment } = useContexts()
   return (
     <div className={styles.fineshCheckoutWrapper}>
       <div className={styles.fineshCheckoutContainer}>
@@ -15,23 +17,31 @@ export function FineshedCheckout() {
             </header>
             <div className={styles.informationsDeliveryBox}>
               <div className={styles.boxInformations}>
-                <MapPin className={styles.checkoutIconLocation} />
+                <MapPin size={16} className={styles.checkoutIconLocation} />
                 <span>
-                  <p>Entrega em</p>
-                  <p>Farrapos - Porto Alegre</p>
+                  <p>
+                    Entrega em {rua}, {houseNumber}
+                  </p>
+                  <p>
+                    {bairro} - {cidade}
+                  </p>
                 </span>
               </div>
               <div className={styles.boxInformations}>
-                <Timer className={styles.checkoutIconTimer} />
+                <Timer size={16} className={styles.checkoutIconTimer} />
                 <span>
                   <p>Previsão de Entrega</p>
                   <p>20 - 30 minutos</p>
                 </span>
               </div>
               <div className={styles.boxInformations}>
-                <CurrencyDollar className={styles.checkoutIconCurrencyMoney} />
+                <CurrencyDollar
+                  size={16}
+                  className={styles.checkoutIconCurrencyMoney}
+                />
                 <span>
                   <p>Pagamento</p>
+                  <p className={styles.deliveryInformations}>{methodPayment}</p>
                 </span>
               </div>
             </div>
