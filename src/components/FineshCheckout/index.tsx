@@ -19,8 +19,10 @@ export function FineshedCheckout() {
               <div className={styles.boxInformations}>
                 <MapPin size={16} className={styles.checkoutIconLocation} />
                 <span>
-                  <p>
-                    Entrega em {rua}, {houseNumber}
+                  <p className={styles.deliveryAdress}>
+                    Entrega em{' '}
+                    <p className={styles.deliveryInformations}>{rua}</p>,{' '}
+                    <p className={styles.deliveryInformations}>{houseNumber}</p>
                   </p>
                   <p>
                     {bairro} - {cidade}
@@ -31,7 +33,7 @@ export function FineshedCheckout() {
                 <Timer size={16} className={styles.checkoutIconTimer} />
                 <span>
                   <p>Previsão de Entrega</p>
-                  <p>20 - 30 minutos</p>
+                  <p className={styles.deliveryInformations}>20 - 30 minutos</p>
                 </span>
               </div>
               <div className={styles.boxInformations}>

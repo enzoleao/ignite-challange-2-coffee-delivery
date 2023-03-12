@@ -28,6 +28,7 @@ export function CoffeeBox(props: CoffeeBoxProps) {
     if (itens != null) {
       const itensBount = JSON.parse(itens)
       itensBount.push({
+        id: itensQuantity + 1,
         name: props.name,
         price: parcialPrice,
         units: acrescentCoffee,
@@ -36,6 +37,7 @@ export function CoffeeBox(props: CoffeeBoxProps) {
       setItensQuantity(itensQuantity + 1)
       setAcrescentCoffee(1)
       itensCartToBuy.push({
+        id: itensQuantity + 1,
         name: props.name,
         price: parcialPrice,
         units: acrescentCoffee,
@@ -43,11 +45,13 @@ export function CoffeeBox(props: CoffeeBoxProps) {
     } else {
       const itensBount = []
       itensBount.push({
+        id: itensQuantity + 1,
         name: props.name,
         price: parcialPrice,
         units: acrescentCoffee,
       })
       itensCartToBuy.push({
+        id: itensQuantity + 1,
         name: props.name,
         price: parcialPrice,
         units: acrescentCoffee,

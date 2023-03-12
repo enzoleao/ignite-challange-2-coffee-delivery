@@ -30,7 +30,8 @@ export function Checkout() {
     houseNumber,
     setHouseNumber,
   } = useContexts()
-  const entrega = 10.0
+  const entrega = 10
+  const total = entrega + totalPurchase
   const [cep, setCep] = useState('')
   return (
     <div className={styles.checkoutWrapper}>
@@ -51,7 +52,7 @@ export function Checkout() {
                 placeholder="CEP"
                 mask="99999-999"
                 onChange={(e) => setCep(e.target.value)}
-                onBlur={buscarCep(cep)}
+                onBlur={() => buscarCep(cep)}
               />
               <input
                 value={rua}
@@ -158,6 +159,7 @@ export function Checkout() {
                     name={i.name}
                     price={i.price.toFixed(2)}
                     unity={i.units}
+                    id={i.id}
                   />
                 )
               })}
@@ -176,9 +178,7 @@ export function Checkout() {
                 </span>
                 <span>
                   <p className={styles.totalPurchase}>Total</p>
-                  <p className={styles.totalPurchase}>
-                    R$ {totalPurchase + entrega}
-                  </p>
+                  <p className={styles.totalPurchase}>R$ {total.toFixed(2)}</p>
                 </span>
               </div>
               <button

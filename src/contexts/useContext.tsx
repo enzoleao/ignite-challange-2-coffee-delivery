@@ -64,9 +64,7 @@ export function ContextProvider({ children }: any) {
       if (response.data.erro === true) {
         alert('Ocorreu algum erro com o CEP, verificar')
       }
-    } catch (err) {
-      console.log(err)
-    }
+    } catch (err) {}
   }
 
   return (

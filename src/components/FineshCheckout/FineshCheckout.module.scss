@@ -71,11 +71,14 @@
                         .checkoutIconCurrencyMoney {
                             background: #C47F17;
                         }
-
+                        .deliveryAdress {
+                            gap: 3px;
+                            display: flex;
+                        }
                         .deliveryInformations {
                             font-family: 'Roboto';
                             font-style: normal;
-                            font-weight: 400;
+                            font-weight: 700;
                             font-size: 16px;
                             line-height: 130%;
                             color: #574F4D;
