@@ -29,16 +29,33 @@ export function Checkout() {
     setMethodPayment,
     houseNumber,
     setHouseNumber,
+    setItensCartToBuy,
+    setTotalPurchase,
+    setItensQuantity,
   } = useContexts()
   const entrega = 10
   const total = entrega + totalPurchase
   const [cep, setCep] = useState('')
+  const changePageCheckout = (e: any) => {
+    e.preventDefault()
+    setComponentToShow('fineshCheckout')
+    setItensCartToBuy([])
+    setTotalPurchase(0)
+    setMethodPayment('')
+    setItensQuantity(0)
+    localStorage.removeItem('itensBuy')
+  }
   return (
     <div className={styles.checkoutWrapper}>
       <div className={styles.checkoutContainer}>
         <section className={styles.leftSection}>
           <p className={styles.headerFinishPurschase}>Complete seu pedido</p>
-          <form className={styles.formAdressClient} action="">
+          <form
+            id="form-adress"
+            className={styles.formAdressClient}
+            onSubmit={changePageCheckout}
+            action=""
+          >
             <header>
               <span>
                 <MapPinLine color="#C47F17" size={22} />
@@ -48,6 +65,7 @@ export function Checkout() {
             </header>
             <main className={styles.inputFormArea}>
               <InputMask
+                required
                 className={styles.inputCep}
                 placeholder="CEP"
                 mask="99999-999"
@@ -55,6 +73,7 @@ export function Checkout() {
                 onBlur={() => buscarCep(cep)}
               />
               <input
+                required
                 value={rua}
                 onChange={(e) => setRua(e.target.value)}
                 placeholder="Rua"
@@ -62,6 +81,7 @@ export function Checkout() {
               />
               <span>
                 <input
+                  required
                   placeholder="Número"
                   type="text"
                   value={houseNumber}
@@ -182,7 +202,8 @@ export function Checkout() {
                 </span>
               </div>
               <button
-                onClick={() => setComponentToShow('fineshCheckout')}
+                type="submit"
+                form="form-adress"
                 className={styles.purchaseConfirmationButton}
               >
                 confirmar pedido
