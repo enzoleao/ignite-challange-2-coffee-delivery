@@ -18,7 +18,7 @@ export function CheckoutCoffeeCard(props: CheckoutCoffeeCardProps) {
   } = useContexts()
   const removeCoffee = async () => {
     const newPrice = parseFloat(props.price)
-    const itens = localStorage.getItem('itensBuy' || '{}')
+    const itens = localStorage.getItem('itensBuy')!
     const itensObject = JSON.parse(itens)
     const newObject = itensObject.filter(
       (produto: any) => produto.id !== props.id,
