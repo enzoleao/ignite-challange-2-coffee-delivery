@@ -1,7 +1,7 @@
 import { Trash } from 'phosphor-react'
 import { useContexts } from '../../contexts/useContext'
+import { Coffee } from '../../services/coffeeServices'
 import styles from './CheckoutCoffeeCard.module.scss'
-
 interface CheckoutCoffeeCardProps {
   id: number
   unity: number
@@ -16,22 +16,30 @@ export function CheckoutCoffeeCard(props: CheckoutCoffeeCardProps) {
     totalPurchase,
     setTotalPurchase,
   } = useContexts()
+
+  const coffeeImageFilterCheckoutCard = Coffee.filter(
+    (produto) => produto.nome === props.name,
+  )
+
   const removeCoffee = async () => {
     const newPrice = parseFloat(props.price)
     const itens = localStorage.getItem('itensBuy')!
     const itensObject = JSON.parse(itens)
-    const newObject = itensObject.filter(
+    const newObjectWithoutItemRemoved = itensObject.filter(
       (produto: any) => produto.id !== props.id,
     )
-    localStorage.setItem('itensBuy', JSON.stringify(newObject))
-    setItensCartToBuy(newObject)
+    localStorage.setItem(
+      'itensBuy',
+      JSON.stringify(newObjectWithoutItemRemoved),
+    )
+    setItensCartToBuy(newObjectWithoutItemRemoved)
     setItensQuantity(itensObject.length - 1)
     setTotalPurchase(totalPurchase - newPrice)
   }
   return (
     <>
       <div className={styles.checkoutCoffeeCardContainer}>
-        <img src="https://i.imgur.com/GoGTcuT.png" alt="" />
+        <img src={coffeeImageFilterCheckoutCard[0].image} alt="" />
         <div className={styles.optionsCheckout}>
           <p className={styles.coffeeName}>{props.name}</p>
           <div>

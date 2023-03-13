@@ -175,7 +175,7 @@ export function Checkout() {
               {itensCartToBuy?.map((i: any) => {
                 return (
                   <CheckoutCoffeeCard
-                    key={i.name}
+                    key={i.id}
                     name={i.name}
                     price={i.price.toFixed(2)}
                     unity={i.units}
