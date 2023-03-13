@@ -4,7 +4,7 @@ import { HiShoppingCart } from 'react-icons/hi'
 import { useContexts } from '../../contexts/useContext'
 
 interface CoffeeBoxProps {
-  img: string
+  img: any
   name: string
   tag: any
   description: string
@@ -19,7 +19,7 @@ export function CoffeeBox(props: CoffeeBoxProps) {
     totalPurchase,
     setTotalPurchase,
   } = useContexts()
-
+  const tags = props.tag
   const itensBuy = () => {
     const itens = localStorage.getItem('itensBuy')
     const parcialPrice =
@@ -67,7 +67,13 @@ export function CoffeeBox(props: CoffeeBoxProps) {
     <div className={styles.coffeeCard}>
       <img src={props.img} alt="" />
       <div className={styles.tagCoffee}>
-        <p className={styles.coffeeTag}>TRADICIONAL</p>
+        {tags.map((i: any) => {
+          return (
+            <p key={i.id} className={styles.coffeeTag}>
+              {i.name}
+            </p>
+          )
+        })}
       </div>
       <p className={styles.coffeeName}>{props.name}</p>
       <p className={styles.coffeeDescription}>{props.description}</p>
