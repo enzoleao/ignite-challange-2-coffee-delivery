@@ -1,6 +1,7 @@
 import { Trash } from 'phosphor-react'
 import { useContexts } from '../../contexts/useContext'
 import { Coffee } from '../../services/coffeeServices'
+import { useState } from 'react'
 import styles from './CheckoutCoffeeCard.module.scss'
 interface CheckoutCoffeeCardProps {
   id: number
@@ -16,12 +17,58 @@ export function CheckoutCoffeeCard(props: CheckoutCoffeeCardProps) {
     totalPurchase,
     setTotalPurchase,
   } = useContexts()
-
+  const newPrice = parseFloat(props.price)
+  const [unitiesCoffeeEditCheckout, setUnitiesCoffeeEditCheckout] = useState(
+    props.unity,
+  )
+  console.log(unitiesCoffeeEditCheckout)
   const coffeeImageFilterCheckoutCard = Coffee.filter(
     (produto) => produto.nome === props.name,
   )
 
-  const removeCoffee = async () => {
+  const addUnitiesCoffee = () => {
+    setUnitiesCoffeeEditCheckout(unitiesCoffeeEditCheckout + 1)
+    const itens = localStorage.getItem('itensBuy')!
+    const itensObject = JSON.parse(itens)
+    const getObjectToChange = itensObject.filter(
+      (produto: any) => produto.id === props.id,
+    )
+    const newObjectWithoutItemUpdated = itensObject.filter(
+      (produto: any) => produto.id !== props.id,
+    )
+    newObjectWithoutItemUpdated.push({
+      id: getObjectToChange[0].id,
+      name: getObjectToChange[0].name,
+      price: getObjectToChange[0].price + newPrice,
+      units: unitiesCoffeeEditCheckout + 1,
+    })
+    localStorage.setItem(
+      'itensBuy',
+      JSON.stringify(newObjectWithoutItemUpdated),
+    )
+  }
+  const removeUnitiesCoffee = () => {
+    setUnitiesCoffeeEditCheckout(unitiesCoffeeEditCheckout - 1)
+    const itens = localStorage.getItem('itensBuy')!
+    const itensObject = JSON.parse(itens)
+    const getObjectToChange = itensObject.filter(
+      (produto: any) => produto.id === props.id,
+    )
+    const newObjectWithoutItemUpdated = itensObject.filter(
+      (produto: any) => produto.id !== props.id,
+    )
+    newObjectWithoutItemUpdated.push({
+      id: getObjectToChange[0].id,
+      name: getObjectToChange[0].name,
+      price: getObjectToChange[0].price - newPrice,
+      units: unitiesCoffeeEditCheckout - 1,
+    })
+    localStorage.setItem(
+      'itensBuy',
+      JSON.stringify(newObjectWithoutItemUpdated),
+    )
+  }
+  const removeCoffee = () => {
     const newPrice = parseFloat(props.price)
     const itens = localStorage.getItem('itensBuy')!
     const itensObject = JSON.parse(itens)
@@ -44,9 +91,14 @@ export function CheckoutCoffeeCard(props: CheckoutCoffeeCardProps) {
           <p className={styles.coffeeName}>{props.name}</p>
           <div>
             <span className={styles.adictionButtons}>
-              <button>-</button>
-              <p>{props.unity}</p>
-              <button>+</button>
+              <button
+                disabled={unitiesCoffeeEditCheckout === 1}
+                onClickCapture={removeUnitiesCoffee}
+              >
+                -
+              </button>
+              <p>{unitiesCoffeeEditCheckout}</p>
+              <button onClick={addUnitiesCoffee}>+</button>
             </span>
             <span className={styles.removeButton}>
               <button onClick={removeCoffee}>
