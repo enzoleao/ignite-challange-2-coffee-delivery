@@ -21,10 +21,10 @@ export function CheckoutCoffeeCard(props: CheckoutCoffeeCardProps) {
   const [unitiesCoffeeEditCheckout, setUnitiesCoffeeEditCheckout] = useState(
     props.unity,
   )
-  console.log(unitiesCoffeeEditCheckout)
   const coffeeImageFilterCheckoutCard = Coffee.filter(
     (produto) => produto.nome === props.name,
   )
+  const [productPrice, setProductPrice] = useState(parseFloat(props.price))
 
   const addUnitiesCoffee = () => {
     setUnitiesCoffeeEditCheckout(unitiesCoffeeEditCheckout + 1)
@@ -46,6 +46,8 @@ export function CheckoutCoffeeCard(props: CheckoutCoffeeCardProps) {
       'itensBuy',
       JSON.stringify(newObjectWithoutItemUpdated),
     )
+    setTotalPurchase(totalPurchase + 9.9)
+    setProductPrice(productPrice + 9.9)
   }
   const removeUnitiesCoffee = () => {
     setUnitiesCoffeeEditCheckout(unitiesCoffeeEditCheckout - 1)
@@ -67,6 +69,8 @@ export function CheckoutCoffeeCard(props: CheckoutCoffeeCardProps) {
       'itensBuy',
       JSON.stringify(newObjectWithoutItemUpdated),
     )
+    setTotalPurchase(totalPurchase - 9.9)
+    setProductPrice(productPrice - 9.9)
   }
   const removeCoffee = () => {
     const newPrice = parseFloat(props.price)
@@ -82,6 +86,7 @@ export function CheckoutCoffeeCard(props: CheckoutCoffeeCardProps) {
     setItensCartToBuy(newObjectWithoutItemRemoved)
     setItensQuantity(itensObject.length - 1)
     setTotalPurchase(totalPurchase - newPrice)
+    setTotalPurchase(0)
   }
   return (
     <>
@@ -109,7 +114,7 @@ export function CheckoutCoffeeCard(props: CheckoutCoffeeCardProps) {
           </div>
         </div>
         <div>
-          <p className={styles.pricePerItens}>R$ {props.price}</p>
+          <p className={styles.pricePerItens}>R$ {productPrice.toFixed(2)}</p>
         </div>
       </div>
       <hr />
